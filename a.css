@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Jua", sans-serif;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  body {
+    background-color: #ffebee !important;
+  }
+  
+  .main-title h1 {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 64px;
+    text-decoration: none;
+    color: #58595B;
+  }
+  
+  .submain-title {
+    font-size: 20px;
+    text-align: center;
+    height: 80px;
+    text-decoration: none;
+    color: #58595B;
+  }
+  
+  
+  .explain{
+      text-align: center;
+      background-color: white;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom : 20px;
+  }
+  .explain h4{
+    font-family: "Jua";
+    font-size: 20px;
+  }
+
+  .table{
+    background-color: #e3f2fd;
+  }
+  .request{
+      border-radius: 10px;
+      background-color: #baddf9;
+      border:none;
+  }
+  
+  .request:hover{
+      background-color:#ffcdd2;
+      border: none;
+      cursor: pointer;
+  }
+
+  #wrap{
+      min-height: 100vh;
+      position: relative;
+      width: 100%;
+      background-color: #f2f2f2;
+  }
+
+  footer{
+      width: 100%;
+      height: 90px;
+      bottom: 0px;
+      position: absolute;
+      border-top: 1px solid #c4c4c4;
+      padding-top: 15px;
+      color: #808080;
+      font-size: 12px;
+      display: flex;
+  }
+
+  footer a{
+      display: inline-block;
+      margin: 0 20px 10px 20px;
+      color: #808080; 
+      font-size: 11px;
+  }
+
+  footer p {
+      margin-top: 0;
+      margin-bottom: 0;
+  }
+
+footer p span{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+
+/*b.html*/
+.tung{
+text-align: center;
+font-size: 300px;
+}
+
+.notyet{
+  text-align: center;
+  margin-top: -60px;
+}
+
+.research_btn{
+  width : 200px;
+  height : 40px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ef9a9a;
+  font-family: "Jua", sans-serif;
+  margin: auto;
+  display: block;
+}
+
+.research_btn:hover{
+  cursor: pointer;
+  background-color: #baddf9;
+}
+
+
+.choose{
+  font-size: 20px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.under_box{
+  border-color: #58595B !important;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.text{
+  font-size: 30px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Jua", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+  background-color:  #ffcdd2;
+}
+
+.login {
+  width: 90%;
+  height: 90%;
+  background: white;
+  background-color: #ffebee;
+  border-radius: 20px;
+}
+
+h2 {
+  color: tomato;
+  font-size: 2em;
+}
+.login_sns {
+  padding: 20px;
+  display: flex;
+}
+
+.login_sns li {
+  padding: 0px 15px;
+}
+
+.login_sns a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50px;
+  background: white;
+  font-size: 20px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4), -3px -3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login_id {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.login_id input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.login_pw {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.login_pw input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.login_etc {
+  padding: 10px;
+  width: 80%;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.submit {
+  margin-top: 50px;
+  width: 80%;
+}
+.submit input {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  outline: none;
+  border-radius: 40px;
+  background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.table1{
+  width: 90%;
+}
+
+.fit-picture{
+  width: 25px
+}
+
+.row {
+  width: 90%;
+  margin: auto;
+  justify-content: center;
+}

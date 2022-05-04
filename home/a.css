@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    font-family: "Jua", sans-serif;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  body {
+    background-color: #ffa4a2;
+  }
+  
+  @font-face {
+    font-family: "Jua";
+    src: url("https://fonts.googleapis.com/css?family=Jua&display=swap");
+  }
+  
+  .main-title h1 {
+    margin-top: 75px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 64px;
+    text-decoration: none;
+    color: #58595B;
+  }
+  
+  .submain-title h3 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 75px;
+    text-decoration: none;
+    color: #58595B;
+  }
+  
+  
+  .explain{
+      text-align: center
+  }
+
+  .request{
+      border-radius: 10px;
+      background-color: rgb(56, 225, 234);
+      border:none;
+  }
+  
+  .request:hover{
+      background-color: rgb(135, 235, 157);
+      border: none;
+      cursor: pointer;
+  }
+
+  #wrap{
+      min-height: 100vh;
+      position: relative;
+      width: 100%;
+      background-color: #f2f2f2;
+  }
+
+  footer{
+      width: 100%;
+      height: 90px;
+      bottom: 0px;
+      position: absolute;
+      border-top: 1px solid #c4c4c4;
+      padding-top: 15px;
+      color: #808080;
+      font-size: 12px;
+      display: flex;
+  }
+
+  footer a{
+      display: inline-block;
+      margin: 0 20px 10px 20px;
+      color: #808080; 
+      font-size: 11px;
+  }
+
+  footer p {
+      margin-top: 0;
+      margin-bottom: 0;
+  }
+
+footer p span{
+    display: inline-block;
+    margin-left: 20px;
+}

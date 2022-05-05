@@ -65,35 +65,39 @@
                 list = ''
             else
                 list = snapshot.val().split('|')
-        }).then(()=> {
-            for(i = 0; i < list.length -1; i++)
+            for(i = 0; i < list.length - 1; i++)
             {
                 newnode = document.createElement('li'); 
                 newnode.innerText = list[i];
                 document.getElementById('toDoList').appendChild(newnode);
+                newnode.addEventListener('click', function(){   // list에 클릭 이벤트가 발생하면 할 일 리스트창에서 지우기
+                    del_table(newnode.innerText);
+                    toDoList.removeChild(newnode);
+                })
             }
+        }).then(()=> {
+            let inputBox = document.getElementById('inputField');  // 과목 입력창
+            let addToDo = document.getElementById('addToDo');      // 버튼
+            let toDoList = document.getElementById('toDoList');    // 과목 리스트창
+    
+            addToDo.addEventListener('click', function(){    // 버튼에 클릭 이벤트가 발생하면
+                var list = document.createElement('li');     // html 'li' 태그 만들기
+                if (!inputBox.value)            // 아무입력 x ->  alert 발생
+                    alert('Empty input!');
+                else
+                {
+                    list.innerText = inputBox.value;  // <li>입력된 할 일</li>
+                    toDoList.appendChild(list);       // 할 일 리스트창에 자식으로 붙이기
+                    add_table(list.innerText);
+                    inputBox.value= "";               // 할 일 입력창 초기화
+                }
+                list.addEventListener('click', function(){   // list에 클릭 이벤트가 발생하면 할 일 리스트창에서 지우기
+                    del_table(list.innerText);
+                    toDoList.removeChild(list);
+                })
+            })
         })
     }, 1000);
-    let inputBox = document.getElementById('inputField');  // 과목 입력창
-    let addToDo = document.getElementById('addToDo');      // 버튼
-    let toDoList = document.getElementById('toDoList');    // 과목 리스트창
-    
-    addToDo.addEventListener('click', function(){    // 버튼에 클릭 이벤트가 발생하면
-        var list = document.createElement('li');     // html 'li' 태그 만들기
-        if (!inputBox.value)            // 아무입력 x ->  alert 발생
-            alert('Empty input!');
-        else
-        {
-            list.innerText = inputBox.value;  // <li>입력된 할 일</li>
-            toDoList.appendChild(list);       // 할 일 리스트창에 자식으로 붙이기
-            add_table(list.innerText);
-            inputBox.value= "";               // 할 일 입력창 초기화
-        }
-        list.addEventListener('click', function(){   // list에 클릭 이벤트가 발생하면 할 일 리스트창에서 지우기
-            del_table(list.innerText);
-            toDoList.removeChild(list);
-        })
-    })
 </script>
 </body>
 </html>

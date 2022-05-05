@@ -124,7 +124,7 @@ function match_student(list, gender, age, mbti, stuID, classn)
 									$('.container').append(`<div class="row row-cols-12 mb-2">
 									<div class="col-2">` + data["name"] + `</div>
 									<div class="col-5">` + classn + `</div>
-									<div class="col-2"><a class="req" id="`+email+`"><img class="fit-picture" src="img/dm.png"></a></div>
+									<div class="col-2"><a class="req" id="`+email+`"><img class="fit-picture" src="img/dm.png" style="cursor:pointer"></a></div>
 								  </div>`);
 							}
 						}

@@ -70,15 +70,25 @@
             var val;
             var list;
             var cond;
+            var err = 0;
             if (user) {
                 userRef.child(replaceAll(user.email, '.', '%')).once('value', function(snapshot) {
                     val = snapshot.val(); 
                 }).then(()=>{
                     $('.explain h4').html(val["name"] + "님에게 추천하는 겹강러는..")
                     tableRef.child(semester).child(email).once('value',function(snapshot2){
-                        list = snapshot2.val().split('|');
+                        if (!snapshot2.val())
+                        {
+                            err = 1;
+                            $('.empty').css("display", "block");
+				            $('.explain h4').html("");
+                        }
+                        else
+                            list = snapshot2.val().split('|');
                     }).then(()=>{
-                        conditionRef.child(email).once('value', function(snapshot3){
+                        if (err != 1)
+                        {
+                            conditionRef.child(email).once('value', function(snapshot3){
                             cond = snapshot3.val();
                         }).then(()=>{
                             for (i = 0; i < list.length - 1; i++)
@@ -86,6 +96,7 @@
                                 get_student(list[i], cond["gender"], cond["age"], cond["mbti"], cond["stuID"]);
                             }
                         });
+                        }
                     });
                 });
             }

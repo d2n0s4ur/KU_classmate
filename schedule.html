@@ -13,7 +13,7 @@
 
 <body>
     <div class="wrap">
-        <div class="login">
+        <div class="login" style="position:relative">
             <h1>Timetable</h1>
             <div class="container" style="width:80%;">
                 <input id="inputField" class="inputField" type="text">   <!--text 입력창(과목 입력창) 만들기-->
@@ -21,27 +21,28 @@
                 <div class="to-dos" id="toDoList"> </div>  <!-- id = inputField에 과목이 입력되고 + 버튼이 눌리면 과목이 나타날 공간 만들기-->
         
             </div>
+            <footer>
+                <div class="under_box">
+                    <div>
+                        <a href="./index.html" class="btn">
+                            <span class="text">Home</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="./schedule.html" class="btn">
+                            <span class="text">My Schedule</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="./c.html" class="btn">
+                            <span class="text">Setting</span>
+                        </a>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-    <footer>
-        <div class="under_box">
-            <div>
-                <a href="./index.html" class="btn">
-                    <span class="text">Home</span>
-                </a>
-            </div>
-            <div>
-                <a href="./schedule.html" class="btn">
-                    <span class="text">My Schedule</span>
-                </a>
-            </div>
-            <div>
-                <a href="./c.html" class="btn">
-                    <span class="text">Setting</span>
-                </a>
-            </div>
-        </div>
-    </footer>
+    
 	<!-- firebase js -->
 	<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>

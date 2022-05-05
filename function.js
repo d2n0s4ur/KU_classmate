@@ -75,29 +75,28 @@ function del_table(classnum)
 		})
 	}
 }
-function get_student(classnum)
+function get_student(classnum, gen, age, mb, st)
 {
 	var result = '';
 	var data;
 	tableRef.child(semester).once('value', function(snapshot){
 		data = snapshot.val();
-	}).then( function(){
 		for (var key in data)
 		{
 			if (data[key].indexOf(classnum) != -1)
 				result += key + '|';
 		}
-		console.log(result);
+	}).then( function(){
+		match_student(result, gen, age, mb, st, classnum)
 	})
 }
 
-function match_student(list, gender, age, mbti)
+function match_student(list, gender, age, mbti, stuID, classn)
 {
 	const user = firebase.auth().currentUser;
 	const user_email = replaceAll(user.email, '.', '%');
-
-	var matched_list = '';
 	var val;
+	var isempty = 0;
 
 	if (!user)
 		alert("로그인 후 이용해주세요.");
@@ -105,7 +104,6 @@ function match_student(list, gender, age, mbti)
 		list = list.split('|');
 		userRef.once('value', function(snapshot){
 			val = snapshot.val();
-		}).then(() => {
 			for (i = 0; i < list.length - 1; i++){
 				var email = list[i];
 				var data = val[email];
@@ -113,18 +111,41 @@ function match_student(list, gender, age, mbti)
 				if (gender == '' || gender == data["gender"])
 				{
 					// check age
-					if (age == 0 || age == data["age"])
+					if (age == -1 || age == data["age"])
 					{
-						//check mbti
-						if ((mbti && checkmbti(data["mbti"])) || !mbti)
+						// check student year id
+						if (stuID == -1 || stuID == parseInt(data["stuID"]/100000000))
 						{
-							if (email != user_email)
-								matched_list += email + '|';
+							//check mbti
+							if ((mbti && checkmbti(data["mbti"])) || !mbti)
+							{
+								isempty = 1;
+								if (email != user_email)
+									$('.container').append(`<div class="row row-cols-12 mb-2">
+									<div class="col-2">` + data["name"] + `</div>
+									<div class="col-5">` + classn + `</div>
+									<div class="col-2"><a class="req" id="`+email+`"><img class="fit-picture" src="img/dm.png"></a></div>
+								  </div>`);
+							}
 						}
 					}
 				}
 			}
-			console.log(matched_list);
+		}).then(() => {
+			if (isempty == 0)
+			{
+				$('.empty').css("display", "block");
+				$('.explain h4').html("");
+			}
+			$('.req').click(function(){
+				const user = firebase.auth().currentUser;
+				const user_email = replaceAll(user.email, '.', '%');
+				var to_email = $(this).attr('id');
+
+				requestRef.child(user_email + '||' + to_email).set(1).then(()=> {
+					$(this).html("신청 완료");
+				});
+			})
 		})
 	}
 }
@@ -147,6 +168,28 @@ function set_condition(gender, age, stuID, mbti)
 		})
 	}
 }
+
+$('#settingBtn').click(function() {
+	const user = firebase.auth().currentUser;
+	const user_email = replaceAll(user.email, '.', '%');
+	var genderlist = document.getElementById('genderInput')
+    var gender = genderlist.options[genderlist.selectedIndex].value
+	var agelist = document.getElementById('ageInput')
+    var age = parseInt(agelist.options[agelist.selectedIndex].value)
+	var stuIDlist = document.getElementById('stuIDInput')
+    var stuID = parseInt(stuIDlist.options[stuIDlist.selectedIndex].value)
+	var mbti = document.getElementById('mbtiInput').checked
+
+	conditionRef.child(user_email).set({
+		age : age,
+		gender : gender,
+		mbti : mbti,
+		stuID : stuID
+	}).then(() => {
+		alert("정상적으로 변경이 적용되었습니다.")
+		location.href="./index.html"
+	})
+});
 
 function checkmbti(mbti)
 {

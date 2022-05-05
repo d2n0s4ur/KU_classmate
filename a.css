@@ -10,6 +10,18 @@
   body {
     background-color: #ffebee !important;
   }
+
+  /*b.html*/
+.tung{
+  margin-top: 0px !important;
+  font-size: 250px !important;
+  }
+  
+  .notyet{
+    text-align: center;
+    margin-top: -60px;
+  }
+  
   
   .main-title h1 {
     margin-top: 100px;
@@ -31,14 +43,19 @@
   
   .explain{
       text-align: center;
-      background-color: white;
+      /* background-color: white; */
       border-radius: 10px;
       width: 100%;
       margin-bottom : 20px;
+      height: 40px;
   }
   .explain h4{
     font-family: "Jua";
     font-size: 20px;
+  }
+
+img {
+    height: 100px;
   }
 
   .table{
@@ -90,18 +107,6 @@
 footer p span{
     display: inline-block;
     margin-left: 20px;
-}
-
-
-/*b.html*/
-.tung{
-text-align: center;
-font-size: 300px;
-}
-
-.notyet{
-  text-align: center;
-  margin-top: -60px;
 }
 
 .research_btn{
@@ -267,11 +272,28 @@ h2 {
 }
 
 .fit-picture{
-  width: 25px
+  width: 25px;
+  height: 25px;
 }
 
 .row {
   width: 90%;
   margin: auto;
   justify-content: center;
+}
+
+.logout{
+  position : absolute;
+  background-color: #ef9a9a;
+  border: none;
+  border-radius: 10px;
+  width: 80px;
+  height: 30px;
+  font-size: 20px;
+  right: 20px;
+}
+
+.logout:hover{
+  background-color: #baddf9;
+  cursor: pointer;
 }
